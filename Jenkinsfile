@@ -11,12 +11,12 @@ pipeline {
                 checkout([$class: 'GitSCM', branches: [[name: '*/master']], \
                 doGenerateSubmoduleConfigurations: false, extensions: [], \
                 submoduleCfg: [], userRemoteConfigs: [[credentialsId: \
-                'kelliejgray1', url: 'https://github.com/kelliejgray/tomcat-test1.git']]])
+                'prod-proj', url: 'https://github.com/kelliejgray/tomcat-test1.git']]])
             }
         }
         stage('Checkout') {
             steps {
-                git branch: 'master', credentialsId: 'kelliejgray1', url: 'https://github.com/kelliejgray/tomcat-test1.git'
+                git branch: 'master', credentialsId: 'prod-proj', url: 'https://github.com/kelliejgray/tomcat-test1.git'
             } 
         }
         stage('deploy war to tomcat') {
